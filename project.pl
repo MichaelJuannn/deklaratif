@@ -34,3 +34,23 @@ countg([X|T],N) :- X \= 1, countg(T,N).
 counth([],0).
 counth([row(_,0,0)|T],N) :- counth(T,N1), N is N1 + 1.
 counth([X|T],N) :- X \= 1, counth(T,N).
+
+rbcckd(203).
+norbcckd(47).
+htnckd(147).
+nohtnckd(103).
+rbcnockd(150).
+norbcnockd(0).
+htnnockd(0).
+nohtnnockd(150).
+ckd(250).
+notckd(150).
+
+bayes(ckd1,A):- A is (203/250) * (147/250) * (250/400).
+bayes(ckd2,A):- A is (47/250) * (147/250) * (250/400).
+bayes(ckd3,A):- A is (203/250) * (103/250) * (250/400).
+bayes(ckd4,A):- A is (47/250) * (103/250) * (250/400).
+bayes(ckd5,A):- A is 0.
+bayes(ckd6,A):- A is 0.
+bayes(ckd7,A):- A is (150/150) * (150/150) * (250/400).
+bayes(ckd8,A):- A is 0.
