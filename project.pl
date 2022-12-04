@@ -1,7 +1,7 @@
 
-import(X):-
+start(A):-
     csv_read_file('data.csv', Rows, [arity(3)]),
-    maplist(assert, Rows),counta(Rows,X).
+    maplist(assert, Rows),counta(Rows,X),write("Data Population Is : "),write(X),nl,bayes(ckd1,A),nl,diagnose(A).
     
 counta([],0).
 counta([row(1,_,1)|T],N) :- counta(T,N1), N is N1 + 1.
@@ -46,11 +46,14 @@ nohtnnockd(150).
 ckd(250).
 notckd(150).
 
-bayes(ckd1,A):- A is (203/250) * (147/250) * (250/400).
-bayes(ckd2,A):- A is (47/250) * (147/250) * (250/400).
-bayes(ckd3,A):- A is (203/250) * (103/250) * (250/400).
-bayes(ckd4,A):- A is (47/250) * (103/250) * (250/400).
-bayes(ckd5,A):- A is 0.
-bayes(ckd6,A):- A is 0.
-bayes(ckd7,A):- A is (150/150) * (150/150) * (250/400).
-bayes(ckd8,A):- A is 0.
+bayes(ckd1,A):- A is (203/250) * (147/250) * (250/400),write("The probability of ckd is: "),write(A).
+bayes(ckd2,A):- A is (47/250) * (147/250) * (250/400),write("The probability of ckd is: "),write(A).
+bayes(ckd3,A):- A is (203/250) * (103/250) * (250/400),write("The probability of ckd is: "),write(A).
+bayes(ckd4,A):- A is (47/250) * (103/250) * (250/400),write("The probability of ckd is: "),write(A).
+bayes(ckd5,A):- A is 0,write("The probability of ckd is: "),write(A).
+bayes(ckd6,A):- A is 0,write("The probability of ckd is: "),write(A).
+bayes(ckd7,A):- A is (150/150) * (150/150) * (250/400),write("The probability of ckd is: "),write(A).
+bayes(ckd8,A):- A is 0,write("The probability of ckd is: "),write(A).
+
+
+diagnose(A):- A < 0.5,write("Patient is not suffering from ckd").
